@@ -11,6 +11,16 @@ class UserController {
         const user = await db.query('SELECT * FROM \"User\" WHERE "ID" = $1', [id])
         res.json(user.rows[0])
     }
+    async getStudent(req, res){
+        const id = req.params.id
+        const user = await db.query('SELECT * FROM \"Student\" WHERE "IDUser" = $1', [id])
+        res.json(user.rows[0])
+    }
+    async getTeacher(req, res){
+        const id = req.params.id
+        const user = await db.query('SELECT * FROM \"Teacher\" WHERE "IDUser" = $1', [id])
+        res.json(user.rows[0])
+    }
     async updateUser(req, res){
         const {Id, Email, Password} = req.body
         const user = await db.query('UPDATE "\User"\ SET "Email" = $2, "Password" = $3 WHERE "ID" = $1 AND "IsDelete" = False RETURNING *', [Id, Email, Password])

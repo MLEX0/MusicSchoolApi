@@ -6,7 +6,8 @@ const passport = require('passport')
 const userRouter = require('./routes/user.routes')
 const chatRouter = require('./routes/chat.routes')
 const authRouter = require('./routes/auth.routes')
-
+const scheduleRouter = require('./routes/schedule.routes')
+const markRouter = require('./routes/mark.routes')
 
 const PORT = process.env.PORT || 80
 
@@ -38,6 +39,8 @@ app.use('/uploads', passport.authenticate('jwt', {session:false}) ,express.stati
 app.use('/api/auth', authRouter)
 app.use('/api/user', userRouter)
 app.use('/api/chat', chatRouter)
+app.use('/api/schedule', scheduleRouter)
+app.use('/api/mark', markRouter)
 
 server.listen(PORT, () => {
     console.log('server started on', PORT);

@@ -18,7 +18,7 @@ class AuthController {
                 const token = jwt.sign({
                     ID: candidate.rows[0].ID,
                     Login: candidate.rows[0].Login
-                }, keys.jwt, { expiresIn: 60 * 60 })
+                }, keys.jwt, { expiresIn: 60 * 3600 })
                 res.status(200).json({
                     token: `${token}`,
                     IdUser: `${candidate.rows[0].ID}`,
@@ -27,7 +27,7 @@ class AuthController {
                 })
             } else {
                 res.status(200).json({
-                    message: 'Неверный пароль'
+                    message: 'Пароль не верен'
                 })
             }
         } else {
