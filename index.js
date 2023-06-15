@@ -9,7 +9,7 @@ const authRouter = require('./routes/auth.routes')
 const scheduleRouter = require('./routes/schedule.routes')
 const markRouter = require('./routes/mark.routes')
 
-const PORT = process.env.PORT || 80
+const PORT = process.env.PORT || 3000
 
 const app = express()
 const server = http.createServer(app);
